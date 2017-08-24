@@ -1,0 +1,34 @@
+{%  extends 'apps/base.html' %}
+{% block content %}
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-md-1">
+            </div>
+        <div class="col-md-12" style ='background-color: #f2f2f2;'>
+            <div class="text-center">
+                <h2>{{ article.title }}</h2>
+            </div>
+            
+        <div class="col-md-1"></div>
+        <br>
+            <div class="text-center">
+                <label style="padding-right:30px;">
+                <span class="glyphicon glyphicon-time">{{ article.cre_date }}</span>
+                </label>
+                <label style="padding-right:30px;">
+                <span class="glyphicon glyphicon-eye-open">阅读量: {{ article.views }}</span>
+                </label>
+                <label style="padding-right:30px;">
+                <span class="glyphicon glyphicon-thumbs-up">点赞: {{ article.likes }}</span>
+                </label>
+            </div>
+            <br><br>
+            <div>
+                <p class="lead">{{ article.body }}</p>
+            </div>
+            
+            <br><br>
+    </div>
+</div>
+{% endblock content %}
