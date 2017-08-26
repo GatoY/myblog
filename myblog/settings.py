@@ -82,7 +82,7 @@ DATABASES = {
 	'PASSWORD': 'Msqlmima',
     }
 }
-
+DEFAULT_CHARSET = 'utf-8'
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

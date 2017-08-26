@@ -7,5 +7,7 @@ def index(request):
     context={'article_list':article_list}
     return render(request,'apps/index.html',context)
 def detail(request,article_id):
+    article.views+=1
+    article.save()
     article=get_object_or_404(Article, pk=article_id)
     return render(request,'apps/detail.html',{'article':article})
