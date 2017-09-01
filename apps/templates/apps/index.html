@@ -8,39 +8,42 @@
     <div class="container-fluid">
         {% for article in article_list %}
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7">
                 <h2>
                 <a href="{% url 'apps:detail' article.pk %}">{{ article.title}}</a>
                 </h2>
             </div>
-            <div class="col-sm-2"></div>
+            
         </div>
+        <br>
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7">
                 <div class="text-left">
-                        <p class="glyphicon glyphicon-time">{{ article.cre_date }}<p>
-                    <label style="padding-right:30px;">
+                    <label style="padding-right:20px;">
+                        <span class="glyphicon glyphicon-time">{{ article.cre_date.year }}.{{ article.cre_date.month }}.{{ article.cre_date.day }}      </span>
+                    </label>
+                    <label style="padding-right:20px;">
                         <span class="glyphicon glyphicon-eye-open">reading: {{ article.views }}</span>
                     </label>
-                    <label style="padding-right:30px;">
+                    <label style="padding-right:20px;">
                         <span class="glyphicon glyphicon-thumbs-up">like: {{ article.likes }}</span>
                     </label>
                 </div>
             </div>
-            <div class="col-sm-2"></div>
+            
         </div>
         
         
-        
+        <br>
         <div class="row">
-            <div class="col-sm-2" ></div>
-            <div class="col-sm-8" ><p class="text-left">{{ article.abstract }}</p>
+            <div class="col-sm-1" ></div>
+            <div class="col-sm-7" ><p class="text-left">{{ article.abstract }}</p>
             <hr><br><br>
             </div>
             
-            <div class="col-sm-2" ></div>
+            
         </div>
         
         {% endfor %}
