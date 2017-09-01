@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-1">
             </div>
-        <div class="col-md-12" style ='background-color: #f2f2f2;'>
+        <div class="col-md-6" style ='background-color: #f2f2f2;'>
             <div class="text-center">
                 <h2>{{ article.title }}</h2>
             </div>
@@ -14,7 +14,7 @@
         <br>
             <div class="text-center">
                 <label style="padding-right:30px;">
-                <span class="glyphicon glyphicon-time">{{ article.cre_date }}</span>
+                    <span class="glyphicon glyphicon-time">{{ article.cre_date.year }}.{{ article.cre_date.month }}.{{ article.cre_date.day }}</span>
                 </label>
                 <label style="padding-right:30px;">
                 <span class="glyphicon glyphicon-eye-open">阅读量: {{ article.views }}</span>
