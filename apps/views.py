@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404,render
 from django.http import Http404,HttpResponse
-from .models import Article
+from .models import Article, Category
 import markdown
 import pygments
 def index(request):
@@ -18,3 +18,14 @@ def detail(request,article_id):
 					'markdown.extensions.toc',
 				    ])
     return render(request,'apps/detail.html',{'article':article})
+
+def category(request):
+    category_list=Category.objects.order_by('created_time')
+    context={'category_list':category_list}
+    return render(request,'apps/category.html', context)
+
+def category_detail(request,category_id):
+    cate=get_object_or_404(Category,pk=category_id)
+    article_list=Article.objects.filter(category=cate)
+    return render(request, 'apps/category_detail.html',context={'article_list':article_list})
+
