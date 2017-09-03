@@ -55,7 +55,9 @@
                             <ul>
                                 {% for article in recent_article_list %}
                                 <li>
-                                    <a href="{% url 'apps:detail' article.pk %}">{{ article.title }}</a>
+                                    <span class="glyphicon glyphicon-pencil">
+                                        <a href="{% url 'apps:detail' article.pk %}">{{ article.title }}</a>
+                                        </span>
                                 </li>
                                 {% empty %}
                                 暂无文章！
@@ -69,7 +71,9 @@
                             <ul>
                                 {% for date in date_list %}
                                 <li>
+                                    <span class="glyphicon glyphicon-calendar">
                                     <a href="#">{{ date.year }} year {{ date.month }} month</a>
+                                    </span>
                                 </li>
                                 {% empty %}
                                 No archives for now.
@@ -83,7 +87,9 @@
                             <ul>
                                 {% for category in category_list %}
                                 <li>
+                                    <span class="glyphicon glyphicon-hand-right">
                                     <a href="#">{{ category.name }} <span class="post-count">(13)</span></a>
+                                    </span>
                                 </li>
                                 {% empty %}
                                 No categories for now.
