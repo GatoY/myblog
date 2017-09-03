@@ -16,6 +16,8 @@ class Article(models.Model):
         tags=models.ManyToManyField('Tag',verbose_name='tags group',blank=True)
         def __str__(self):
             return self.title
+	def get_absolute_url(self):
+	    return reverse('detail', kwargs={'article.pk': self.pk})
 class Category(models.Model):
     name = models.CharField('cate_name', max_length=20)
     created_time = models.DateTimeField('cre_time', auto_now_add=True)

@@ -48,22 +48,21 @@
                         {% block content %}{% endblock content %}
                     </main>
                     <aside class="col-md-4">
+                        
                         <div class="widget widget-recent-posts">
                             <h3 class="widget-title">Latest articles</h3>
                             {% get_recent_article as recent_article_list %}
                             <ul>
-                                {% if article_list %}
-                                {% for article in recent_artilce_list %}
-                                
+                                {% for article in recent_article_list %}
                                 <li>
-                                    <a href="{{ post.get_absolute_url }}">{{ artilce.title }}</a>
+                                    <a href="{% url 'apps:detail' article.pk %}">{{ article.title }}</a>
                                 </li>
+                                {% empty %}
+                                暂无文章！
                                 {% endfor %}
-                                {% else %}
-                                <p> No articles are available.</p>
-                                {% endif %}
                             </ul>
                         </div>
+                        
                         <div class="widget widget-archives">
                             <h3 class="widget-title">archive</h3>
                             {% archives as date_list %}
