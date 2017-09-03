@@ -9,7 +9,7 @@ def get_recent_article(num=5):
 
 @register.simple_tag
 def archives():
-    return Article.objects.dates('cre_date','month',order='DESC')
+    return Article.objects.dates('cre_date','year',order='DESC')
 
 @register.simple_tag
 def get_categories():

@@ -3,11 +3,12 @@
 
 {% block content %}
 <br><br><br><br>
-{% for category in category_list %}
+{% for archive in archive_list %}
 <ul>
     <li>
-        <h2><a href="{% url 'apps:category_detail' category.pk %}">{{ category.name }}</a></h2>
+        <h2><a href="{% url 'apps:archive_detail' archive.year %}">{{ archive.year }}</a></h2>
     </li>
 </ul>
 {% endfor %}
 {% endblock content %}
+

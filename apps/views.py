@@ -29,3 +29,11 @@ def category_detail(request,category_id):
     article_list=Article.objects.filter(category=cate)
     return render(request, 'apps/category_detail.html',context={'article_list':article_list})
 
+def archive_detail(request,year):
+    article_list=Article.objects.filter(cre_date__year=year)
+    return render(request,'apps/index.html',context={'article_list':article_list})
+
+def archive(request):
+    archive_list = Article.objects.dates('cre_date','year',order='DESC')
+    return render(request,'apps/archive.html',context={'archive_list': archive_list}) 
+    
