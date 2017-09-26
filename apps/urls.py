@@ -8,5 +8,6 @@ urlpatterns=[
     url(r'^category/(?P<category_id>[0-9]+)/$',views.category_detail,name='category_detail'),
     url(r'^archive/$',views.archive,name='archive'),
     url(r'^archive/(?P<year>[0-9]{4})/$',views.archive_detail,name='archive_detail'),
+    url(r'^trupm/$',views.trump,name='trump'),
 ]
 

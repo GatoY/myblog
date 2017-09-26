@@ -35,5 +35,6 @@ def archive_detail(request,year):
 
 def archive(request):
     archive_list = Article.objects.dates('cre_date','year',order='DESC')
-    return render(request,'apps/archive.html',context={'archive_list': archive_list}) 
-    
+    return render(request,'apps/archive.html',context={'archive_list': archive_list})
+def trump(request):
+    return render(request,'apps/Trump.html')

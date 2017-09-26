@@ -1,10 +1,9 @@
 {% load apps_tags %}
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>LY's blog</title>
+        <title>Lost Key</title>
         <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,35 +11,21 @@
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                     <link rel="stylesheet" href="{% static 'apps/css/github.css' %}">
                         <link rel="stylesheet" href="{% static 'apps/css/widget.css' %}">
-                        
-    </head>
+                            </head>
     <body>
-        
         <nav class="navbar navbar-inverse " role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    
-                    <a class="navbar-brand" href="{% url 'apps:index'%}" style="font-size:30px; margin-left: 100px;margin-bottom: 30px;margin-top: 10px;">LY's blog</a>
+                    <a class="navbar-brand" href="{% url 'apps:index'%}" style="font-size:30px; margin-left: 100px;margin-bottom: 30px;margin-top: 10px;">Lost Key</a>
                 </div>
-                
                 <ul class="nav navbar-nav navbar-right" style="margin-bottom: 15px;margin-top: 25px;margin-right: 30px;">
-                    <li><a href="{% url 'apps:index' %}"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-                    <li><a href="{% url 'apps:category' %}"><span class="glyphicon glyphicon-th"></span> 分类</a></li>
-                    <li><a href="{% url 'apps:archive' %}"><span class="glyphicon glyphicon-folder-close"></span> 归档</a></li>
-                    
+                    <li><a href="{% url 'apps:index' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="{% url 'apps:category' %}"><span class="glyphicon glyphicon-th"></span> Category</a></li>
+                    <li><a href="{% url 'apps:archive' %}"><span class="glyphicon glyphicon-folder-close"></span> Archive</a></li>
+                    <li><a href="{% url 'apps:trump' %}"><span class="glyphicon glyphicon-folder-close"></span> Archive</a></li>
                 </ul>
             </div>
         </nav>
-        
-
-
-
-
-
-
-
-        
-        
         <div class="content-body">
             <div class="container">
                 <div class="row">
@@ -48,7 +33,6 @@
                         {% block content %}{% endblock content %}
                     </main>
                     <aside class="col-md-4">
-                        
                         <div class="widget widget-recent-posts">
                             <h3 class="widget-title">Latest articles</h3>
                             {% get_recent_article as recent_article_list %}
@@ -57,14 +41,13 @@
                                 <li>
                                     <span class="glyphicon glyphicon-pencil">
                                         <a href="{% url 'apps:detail' article.pk %}">{{ article.title }}</a>
-                                        </span>
+                                    </span>
                                 </li>
                                 {% empty %}
-                                暂无文章！
+                                No Article！
                                 {% endfor %}
                             </ul>
                         </div>
-                        
                         <div class="widget widget-archives">
                             <h3 class="widget-title">archive</h3>
                             {% archives as date_list %}
@@ -72,7 +55,7 @@
                                 {% for date in date_list %}
                                 <li>
                                     <span class="glyphicon glyphicon-calendar">
-                                    <a href="{% url 'apps:archive_detail' date.year %}">{{ date.year }}</a>
+                                        <a href="{% url 'apps:archive_detail' date.year %}">{{ date.year }}</a>
                                     </span>
                                 </li>
                                 {% empty %}
@@ -87,7 +70,7 @@
                                 {% for category in category_list %}
                                 <li>
                                     <span class="glyphicon glyphicon-hand-right">
-                                    <a href="{% url 'apps:category_detail' category.pk %}">{{ category.name }} <span class="post-count"></span></a>
+                                        <a href="{% url 'apps:category_detail' category.pk %}">{{ category.name }} <span class="post-count"></span></a>
                                     </span>
                                 </li>
                                 {% empty %}
@@ -102,17 +85,14 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p style="text-align: center;">Copyright &copy; LY的博客 2017</p>
+                    <p style="text-align: center;">Copyright &copy; Lost Key 2017</p>
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-12" style="text-align: center;">
                     <a href="https://github.com/GatoY">Github</a>
                 </div>
-                
             </div>
             <!-- /.row -->
         </footer>
-        
     </body>
 </html>
-
