@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404,render
 from django.http import Http404,HttpResponse
-from .models import Article, Category
+from .models import Article, Category,Twitterlist
 import markdown
 import pygments
+import os
 def index(request):
     article_list=Article.objects.order_by('-cre_date')
     context={'article_list':article_list}
@@ -36,5 +37,13 @@ def archive_detail(request,year):
 def archive(request):
     archive_list = Article.objects.dates('cre_date','year',order='DESC')
     return render(request,'apps/archive.html',context={'archive_list': archive_list})
-def trump(request):
-    return render(request,'apps/Trump.html')
+def twitterlist(request):
+    twitter_list=Twitterlist.objects.order_by('-name')
+    context={'twitter_list':twitter_list}
+    return render(request,'apps/twitterlist.html',context)
+def twitterdetail(request,twitter_id):
+    twitter=get_object_or_404(Twitterlist, pk = twitter_id)
+    name_html=os.listdir('templates/apps/twitter/'+twitter.dirpath)[-1]
+    return render(request,'apps/'+name_html,{'twitter':twitter})
+
+

@@ -1,0 +1,43 @@
+{%  extends 'apps/base.html' %}
+
+
+{% block content %}
+<br><br>
+{% if twitter_list %}
+<br><br>
+<div class="container-fluid">
+    {% for twitter in twitter_list %}
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7">
+            <h2>
+                <a href="{% url 'apps:twitterdetail' twitter.pk %}">
+                    <img src='/{{ twitter.img }}' width=50px  />
+                </a>
+                <a href="{% url 'apps:twitterdetail' twitter.pk %}">{{ twitter.user }}</a>
+            </h2>
+        </div>
+        
+    </div>
+    
+    
+    
+    <div class="row">
+        <div class="col-sm-1" ></div>
+        
+        <div class="col-sm-7" >
+            <a href="{% url 'apps:twitterdetail' twitter.pk %}">
+                <p class="text-left">{{ twitter.name }}</p>
+            </a>
+            <hr><br><br>
+        </div>
+        
+    </div>
+    {% endfor %}
+    {% else %}
+    <p> No twitter are available.</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

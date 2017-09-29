@@ -32,3 +32,13 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+class Twitterlist(models.Model):
+    name = models.CharField('twitteraccount',max_length=30)
+    user = models.CharField('twitteruser', max_length=20)
+    img = models.ImageField(upload_to='apps/static/apps/img')
+    dirpath=models.CharField('dirpath',max_length=30)
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('twitterdetail', kwargs={'twitter.pk': self.pk})

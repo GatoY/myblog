@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR, 'collectstatic')
+STATIC_ROOT=os.path.join(os.path.dirname(__file__),'static')
 STATICFILES_DIRS = (
+	('image',os.path.join(STATIC_ROOT,'image').replace('\\','/')),
 	os.path.join(BASE_DIR, "static"),
-)
+	)
