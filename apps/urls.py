@@ -12,6 +12,7 @@ urlpatterns=[
     url(r'^archive/(?P<year>[0-9]{4})/$',views.archive_detail,name='archive_detail'),
     url(r'^twitterlist/$',views.twitterlist,name='twitterlist'),
     url(r'^twitterlist/(?P<twitter_id>[0-9]+)/$',views.twitterdetail,name='twitterdetail'),
+    url(r'^twittercontent/(?P<twitter_name_id>[0-9]+)/(?P<twitter_id>[0-9]+)/$',views.twittercontent,name='twittercontent'),
 ]
 urlpatterns+=staticfiles_urlpatterns()
 

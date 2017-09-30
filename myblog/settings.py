@@ -1,3 +1,5 @@
+import codecs
+codecs.register(lambda name: codecs.lookup('utf8') if name =='utf8mb4' else None)
 """
 Django settings for myblog project.
 
@@ -80,6 +82,7 @@ DATABASES = {
         'NAME': 'myblog',
 	'USER': 'root',
 	'PASSWORD': 'Msqlmima',
+	'OPTIONS':{'charset':'utf8mb4'},
     }
 }
 DEFAULT_CHARSET = 'utf-8'

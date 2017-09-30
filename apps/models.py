@@ -37,8 +37,17 @@ class Twitterlist(models.Model):
     name = models.CharField('twitteraccount',max_length=30)
     user = models.CharField('twitteruser', max_length=20)
     img = models.ImageField(upload_to='apps/static/apps/img')
-    dirpath=models.CharField('dirpath',max_length=30)
+
     def __str__(self):
         return self.name
     def get_absolute_url(self):
         return reverse('twitterdetail', kwargs={'twitter.pk': self.pk})
+class Twitter(models.Model):
+    text=models.CharField('text',max_length=200)
+    pub_date=models.DateTimeField('published data')
+    twittername=models.ForeignKey('Twitterlist',verbose_name='twittername',null=True,on_delete=models.SET_NULL)
+    def __str__(self):
+        return self.text
+class TwitterImg(models.Model):
+    img=models.ImageField(upload_to='apps/static/apps/img/twitter')
+    twitter=models.ForeignKey('Twitter',verbose_name='Twitter',null=True,on_delete=models.SET_NULL)

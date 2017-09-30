@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404,render
 from django.http import Http404,HttpResponse
-from .models import Article, Category,Twitterlist
+from .models import Article, Category, Twitterlist, Twitter, TwitterImg
 import markdown
 import pygments
 import os
@@ -42,8 +42,12 @@ def twitterlist(request):
     context={'twitter_list':twitter_list}
     return render(request,'apps/twitterlist.html',context)
 def twitterdetail(request,twitter_id):
-    twitter=get_object_or_404(Twitterlist, pk = twitter_id)
-    name_html=os.listdir('templates/apps/twitter/'+twitter.dirpath)[-1]
-    return render(request,'apps/'+name_html,{'twitter':twitter})
-
+    twitter_name=get_object_or_404(Twitterlist, pk = twitter_id)
+    twitter_list=Twitter.objects.filter(twittername=twitter_name).order_by('-pub_date')
+    return render(request,'apps/twitterdetail.html',context={'twitter_name':twitter_name,'twitter_list':twitter_list})
+def twittercontent(request,twitter_name_id,twitter_id):
+    twitternumber=get_object_or_404(Twitter, pk=twitter_id)
+    twitter_name=get_object_or_404(Twitterlist, pk = twitter_name_id)
+    twitter_img=TwitterImg.objects.filter(twitter=twitternumber)
+    return render(request,'apps/twittercontent.html',context={'twitter_name':twitter_name,'twitter_number':twitternumber,'twitterimg_list':twitter_img})
 
