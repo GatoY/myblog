@@ -1,4 +1,6 @@
 {%  extends 'apps/base_twitter.html' %}
+{% load static %}
+
 {% block content %}
 <br><br>
 {% if twitter_list %}
@@ -10,7 +12,7 @@
         <div class="col-sm-7">
             <h2>
                 <a href="{% url 'apps:twitterdetail' twitter.pk %}">
-                    <img src='/{{ twitter.img }}' width=50px  />
+                    <img src='../../{{ twitter.img }}' width=50px  />
                 </a>
                 <a href="{% url 'apps:twitterdetail' twitter.pk %}">{{ twitter.user }}</a>
             </h2>
