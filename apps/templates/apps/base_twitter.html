@@ -9,8 +9,6 @@
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                    <link rel="stylesheet" href="{% static 'apps/css/github.css' %}">
-                        <link rel="stylesheet" href="{% static 'apps/css/widget.css' %}">
                             </head>
     <body>
         <nav class="navbar navbar-inverse " role="navigation">
@@ -37,53 +35,6 @@
                         
                         {% block content %}{% endblock content %}
                     </main>
-                    <!--<aside class="col-md-4">
-                        <div class="widget widget-recent-posts">
-                            <h3 class="widget-title">Latest articles</h3>
-                            {% get_recent_article as recent_article_list %}
-                            <ul>
-                                {% for article in recent_article_list %}
-                                <li>
-                                    <span class="glyphicon glyphicon-pencil">
-                                        <a href="{% url 'apps:detail' article.pk %}">{{ article.title }}</a>
-                                    </span>
-                                </li>
-                                {% empty %}
-                                No Article！
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="widget widget-archives">
-                            <h3 class="widget-title">archive</h3>
-                            {% archives as date_list %}
-                            <ul>
-                                {% for date in date_list %}
-                                <li>
-                                    <span class="glyphicon glyphicon-calendar">
-                                        <a href="{% url 'apps:archive_detail' date.year %}">{{ date.year }}</a>
-                                    </span>
-                                </li>
-                                {% empty %}
-                                No archives for now.
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="widget widget-category">
-                            <h3 class="widget-title">Category</h3>
-                            {% get_categories as category_list %}
-                            <ul>
-                                {% for category in category_list %}
-                                <li>
-                                    <span class="glyphicon glyphicon-hand-right">
-                                        <a href="{% url 'apps:category_detail' category.pk %}">{{ category.name }} <span class="post-count"></span></a>
-                                    </span>
-                                </li>
-                                {% empty %}
-                                No categories for now.
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </aside>-->
                 </div>
             </div>
         </div>

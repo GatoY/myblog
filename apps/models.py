@@ -36,7 +36,7 @@ class Tag(models.Model):
 class Twitterlist(models.Model):
     name = models.CharField('twitteraccount',max_length=30)
     user = models.CharField('twitteruser', max_length=20)
-    img = models.ImageField(upload_to='apps/static/apps/img')
+    img = models.ImageField(upload_to='static/img')
 
     def __str__(self):
         return self.name
@@ -49,5 +49,5 @@ class Twitter(models.Model):
     def __str__(self):
         return self.text
 class TwitterImg(models.Model):
-    img=models.ImageField(upload_to='apps/static/apps/img/twitter')
+    img=models.ImageField(upload_to='static/img/twitter')
     twitter=models.ForeignKey('Twitter',verbose_name='Twitter',null=True,on_delete=models.SET_NULL)
