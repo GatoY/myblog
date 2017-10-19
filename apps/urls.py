@@ -13,6 +13,8 @@ urlpatterns=[
     url(r'^twitterlist/$',views.twitterlist,name='twitterlist'),
     url(r'^twitterlist/(?P<twitter_id>[0-9]+)/$',views.twitterdetail,name='twitterdetail'),
     url(r'^twittercontent/(?P<twitter_name_id>[0-9]+)/(?P<twitter_id>[0-9]+)/$',views.twittercontent,name='twittercontent'),
-]
+    url(r'^(?P<article_id>[0-9]+)/like/$',views.like,name='like'),
+             ]
+
 urlpatterns+=staticfiles_urlpatterns()
 

@@ -1,5 +1,25 @@
 {%  extends 'apps/base.html' %}
 {% block content %}
+
+<script type="text/javascript">
+        function likes_topic(){
+        $.ajax({
+               
+               type:'POST',
+               url:'/apps/{{ article.pk }}/like/',
+               data:{'article_id':{{ article.pk }}},
+               dataType:'json',
+               processData:false,
+               contentType:false,
+               success:function(data,status){
+               $("#like").html('<span class="glyphicon glyphicon-thumbs-up">点赞: '+data.like_num+'</span>');
+               
+               }
+               
+               });
+    }
+</script>
+
 <div class="container" style ='background-color: #ffffff;'>
     <br><br>
     <div class="row">
@@ -20,7 +40,11 @@
                 <span class="glyphicon glyphicon-eye-open">阅读量: {{ article.views }}</span>
                 </label>
                 <label style="padding-right:30px;">
-                <span class="glyphicon glyphicon-thumbs-up">点赞: {{ article.likes }}</span>
+                    
+                    <a onclick="likes_topic();" >
+                <div id='like'>
+                <span class="glyphicon glyphicon-thumbs-up">点赞: {{ article.likes }}</span></a>
+                    </div>
                 </label>
             </div>
             <br><br>
@@ -32,3 +56,5 @@
     </div>
 </div>
 {% endblock content %}
+
+

@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404,render
-from django.http import Http404,HttpResponse
+from django.http import Http404,HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import Article, Category, Twitterlist, Twitter, TwitterImg
 import markdown
 import pygments
 import os
+
 def index(request):
     article_list=Article.objects.order_by('-cre_date')
     context={'article_list':article_list}
@@ -50,4 +52,12 @@ def twittercontent(request,twitter_name_id,twitter_id):
     twitter_name=get_object_or_404(Twitterlist, pk = twitter_name_id)
     twitter_img=TwitterImg.objects.filter(twitter=twitternumber)
     return render(request,'apps/twittercontent.html',context={'twitter_name':twitter_name,'twitter_number':twitternumber,'twitterimg_list':twitter_img})
-
+@csrf_exempt
+def like(request,article_id):
+    article=get_object_or_404(Article, pk=article_id)
+    article.likes+=1
+    article.save()
+    print 1
+    ret={'like_num':0}
+    ret['like_num'] = article.likes
+    return JsonResponse(ret)
