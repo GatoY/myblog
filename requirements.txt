@@ -10,7 +10,7 @@ certifi==2016.2.28
 cssselect==0.9.2
 dask==0.10.2
 decorator==4.0.10
-Django==1.10a1
+Django==2.2.24
 esptool==1.0.2.dev0
 future==0.16.0
 html5lib==0.999999999
