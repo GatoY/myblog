@@ -96,7 +96,7 @@ queuelib==1.4.2
 requests==2.10.0
 requests-oauthlib==0.8.0
 scipy==0.13.0b1
-Scrapy==1.1.1
+Scrapy==1.8.2
 service-identity==16.0.0
 shadowsocks==2.8.2
 singledispatch==3.4.0.3
